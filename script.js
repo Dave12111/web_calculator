@@ -1,4 +1,4 @@
-    const display = document.getElementById('display');
+const display = document.getElementById('display');
     const historyPanel = document.getElementById('history-panel');
     const historyContent = document.getElementById('history-content');
     let displayString = '';
@@ -41,12 +41,10 @@
         let result = Function('factorial', `return ${expr}`)(factorial);
         lastResult = result;
         isFraction = false;
-        // Save the display string before it is replaced
-        const displayForHistory = displayString;
         display.value = result;
         displayString = result.toString();
         internalExpression = result.toString();
-        updateHistory(displayForHistory, result); // Use display string!
+        updateHistory(expr, result);
       } catch {
         display.value = 'Error';
         displayString = '';
@@ -54,9 +52,9 @@
       }
     }
 
-    function updateHistory(displayExpr, result) {
+    function updateHistory(expr, result) {
       const entry = document.createElement('div');
-      entry.innerText = `${displayExpr} = ${result}`;
+      entry.innerText = `${expr} = ${result}`;
       historyContent.prepend(entry);
     }
 
@@ -88,4 +86,3 @@
       } while (Math.abs(decimal - h1 / k1) > decimal * tolerance);
       return `${h1}/${k1}`;
     }
-  
