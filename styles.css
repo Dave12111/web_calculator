@@ -1,64 +1,16 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-* {
-      font-family: "Roboto", "Poppins", sans-serif;
-}
-
-
+    * {
+      font-family: "Roboto", sans-serif;
+    }
+    
     body {
       margin: 0;
       padding: 0;
-  
       background: #1f1f2f;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-    }
-
-    .glow-border {
-      position: relative;
-      border-radius: 22px;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      max-width: 900px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .glow-border::before {
-      content: '';
-      position: absolute;
-      top: -2.5px; left: -2.5px; right: -2.5px; bottom: -2.5px;
-      border-radius: 24px;
-      z-index: 0;
-      background: linear-gradient(
-        120deg,
-        #00eaff,
-        #ff00cc,
-        #ffe600,
-        #00ffb3,
-        #00eaff
-      );
-      background-size: 400% 400%;
-      filter: blur(2px) brightness(1.2);
-      animation: glowmove 8s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes glowmove {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
     }
 
     .calculator {
@@ -72,8 +24,6 @@
       box-shadow: 0 0 15px #00000050;
       gap: 20px;
       box-sizing: border-box;
-      position: relative;
-      z-index: 1;
     }
 
     .display-container {
@@ -88,21 +38,12 @@
       padding: 12px 16px;
       background: #18181f;
       color: #0f0;
-      border: 2px solid transparent;
+      border: none;
       border-radius: 10px;
       text-align: right;
       outline: none;
       word-break: break-word;
       margin-bottom: 10px;
-      box-shadow: 0 0 0 2px #00eaff, 0 0 8px #00eaff80;
-      transition: box-shadow 0.3s, border-color 0.3s;
-      position: relative;
-      z-index: 2;
-    }
-
-    #display:focus {
-      box-shadow: 0 0 0 2.5px #ff00cc, 0 0 12px #ff00cc80;
-      border-color: #ff00cc;
     }
 
     .buttons {
@@ -174,16 +115,8 @@
     }
 
     @media screen and (max-width: 768px) {
-      .glow-border {
-        border-radius: 12px;
-      }
-      .glow-border::before {
-        border-radius: 14px;
-      }
       .calculator {
         flex-direction: column;
-        border-radius: 10px;
-        padding: 10px;
       }
       .buttons {
         grid-template-columns: repeat(4, 1fr);
